@@ -1,7 +1,7 @@
 from datacenter.models import Passcard
 from datacenter.models import Visit
-from datacenter.models import get_duration
-from datacenter.models import format_duration
+from datacenter.extra_functionality import get_duration
+from datacenter.extra_functionality import format_duration
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
@@ -17,7 +17,7 @@ def passcard_info_view(request, passcode):
         visit_info = {
             'entered_at': visit.entered_at,
             'duration': format_duration(total_time),
-            'is_strange': total_time.total_seconds() >= 3600,
+            'is_strange': total_time.total_seconds() >= 3600,   # сравниваем затраченное время на визит 3 600 сек. (1час)
         }
         this_passcard_visits.append(visit_info)
 
