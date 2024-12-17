@@ -4,11 +4,11 @@
 сколько времени он там. А так же все посещения по имени сотрудника. Скрипт подсвечивает долгие визиты (более часа) и
 обозначает их как подозрительные.
 
-![img.png](img.png)
+![image](https://github.com/user-attachments/assets/cc0f9ae7-c955-4309-bde1-afd3ef766f7e)
 
-![img_1.png](img_1.png)
+![image](https://github.com/user-attachments/assets/bf3f0625-c3d5-4e0a-96b4-b86ca2196272)
 
-![img_2.png](img_2.png)
+![image](https://github.com/user-attachments/assets/d4061eea-7bdc-4df3-93c3-fb703cbea62f)
 
 ## Установка
 
