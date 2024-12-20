@@ -5,37 +5,26 @@ from environs import Env
 env = Env()
 env.read_env()
 
-engine = env('ENGINE')
-host = env('HOST')
-port = env('PORT')
-name = env('NAME')
-guard = env('GUARD')
-password_db = env('PASSWORD_DB')
-
-secret_key = env('SECRET_KEY')
-debug = env.bool('DEBUG', default=False)
-
-
 DATABASES = {
     'default': {
-        'ENGINE': engine,
-        'HOST': host,
-        'PORT': port,
-        'NAME': name,
-        'USER': guard,
-        'PASSWORD': password_db,
+        'ENGINE': env.str('DB_ENGINE'),
+        'HOST': env.str('DB_HOST'),
+        'PORT': env.int('DB_PORT'),
+        'NAME': env.str('DB_NAME'),
+        'USER': env.str('DB_GUARD'),
+        'PASSWORD': env.str('DB_PASSWORD'),
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = secret_key
+SECRET_KEY = env.str('SECRET_KEY')
 
-DEBUG = debug
+DEBUG = env.bool('DEBUG', default=False)
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
