@@ -2,6 +2,7 @@ from datacenter.models import Passcard
 from datacenter.models import Visit
 from datacenter.extra_functionality import get_duration
 from datacenter.extra_functionality import format_duration
+from datacenter.extra_functionality import calculation_time
 from django.shortcuts import render
 from django.utils.timezone import localtime
 
@@ -15,7 +16,7 @@ def storage_information_view(request):
             'who_entered': visit.passcard,
             'entered_at': localtime(visit.entered_at),
             'duration': format_duration(get_duration(visit)),
-            'is_strange': get_duration(visit).total_seconds() >= 3600,
+            'is_strange': get_duration(visit).total_seconds() >= calculation_time(60),
         }
         non_closed_visits.append(visit_info)
 
